@@ -10,8 +10,8 @@ class Home extends StatelessWidget {
         child: Column(
           children: [
             //Agrega tu nombre completo, despues subelo a tu rama asignada
-            
-            Text('')
+
+            Text('Cesar Raul Gonzalez Valentin')
           ],
         ),
       ),
