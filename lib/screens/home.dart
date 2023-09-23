@@ -11,10 +11,7 @@ class Home extends StatelessWidget {
           children: [
             //Agrega tu nombre completo, despues subelo a tu rama asignada
             Text('Heriberto Bacilio Rudiño'),
-            Text('Jose Angel Garcia Martinez'),
-            Text('Cesar Raul Gonzalez Valentin'),
-            Text('Edson Ronaldo Reyes Hernandez'),
-            Text('Rodrigo Eduardo Lopez Reyes'),
+
           ],
         ),
       ),
