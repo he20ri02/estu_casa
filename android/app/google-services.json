@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "1018181969475",
+    "firebase_url": "https://estucasa-a6c22-default-rtdb.firebaseio.com",
+    "project_id": "estucasa-a6c22",
+    "storage_bucket": "estucasa-a6c22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1018181969475:android:23d76cc404b60b6e0a56f6",
+        "android_client_info": {
+          "package_name": "com.example.estu_casa_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhS9zfajN3EQFDWbkGqXCByRMTLBEjj-8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1018181969475:android:b37a70c1b45be4150a56f6",
+        "android_client_info": {
+          "package_name": "com.example.flutter_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhS9zfajN3EQFDWbkGqXCByRMTLBEjj-8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
