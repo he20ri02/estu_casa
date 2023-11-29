@@ -1,7 +1,7 @@
 import 'package:estu_casa_app/firebase_auth/firebase_auth.dart';
-import 'package:estu_casa_app/screens/aviso_privacidad.dart';
+import 'package:estu_casa_app/screens/sobre_la_app/aviso_privacidad.dart';
 import 'package:estu_casa_app/screens/login_page.dart';
-import 'package:estu_casa_app/screens/proteccion_datos_personales.dart';
+import 'package:estu_casa_app/screens/sobre_la_app/proteccion_datos_personales.dart';
 import 'package:estu_casa_app/widgets/form_container_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -238,9 +238,47 @@ class _SignUpPageState extends State<SignUpPage> {
 
     if (user != null) {
       print("Usuario creado exitosamente");
+      FloatingNotification.show(context, 'Usuario creado correctamente');
       Navigator.pushNamed(context, "/splash_registro");
     } else {
       print("Ocurrió un error");
+      FloatingNotification.show(context, 'Error al registrar usuario');
     }
+  }
+}
+
+//notificaciones
+class FloatingNotification {
+  static OverlayEntry? _overlayEntry;
+
+  static void show(BuildContext context, String message) {
+    _overlayEntry = OverlayEntry(
+      builder: (BuildContext context) => Positioned(
+        bottom: 50.0,
+        left: MediaQuery.of(context).size.width * 0.2, 
+        
+        child: Material(
+          color: Colors.transparent,
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+            decoration: BoxDecoration(
+              color: Colors.black,
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            child: Text(
+              message,
+              style: TextStyle(color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
+      ),
+    );
+
+    Overlay.of(context).insert(_overlayEntry!);
+
+    Future.delayed(Duration(seconds: 2), () {
+      _overlayEntry!.remove();
+    });
   }
 }

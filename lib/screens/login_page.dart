@@ -3,6 +3,7 @@ import 'package:estu_casa_app/screens/sing_up.dart';
 import 'package:estu_casa_app/widgets/form_container_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -87,6 +88,7 @@ class _LoginPageState extends State<LoginPage> {
               GestureDetector(
                 onTap:
                     _signIn, //Mandamos llamar el metodo que escribimos al final
+                    
                 child: Container(
                   width: double.infinity,
                   height: 45,
@@ -140,6 +142,7 @@ class _LoginPageState extends State<LoginPage> {
   void _signIn() async {
     String email = _emailController.text;
     String password = _passwordController.text;
+    
     //Estamos capturando lo que se escriba
 
     //llamada a la promesa
@@ -150,9 +153,47 @@ class _LoginPageState extends State<LoginPage> {
 
     if (user != null) {
       print("Usuario Inicio sesión de manera exitosa!");
+      FloatingNotification.show(context, 'Inicio de sesión exitoso!');
       Navigator.pushNamed(context, "/home");
+
     } else {
       print("Ocurrió un error");
+      FloatingNotification.show(context, 'Datos incorrectos');
     }
   }
 }
+
+class FloatingNotification {
+  static OverlayEntry? _overlayEntry;
+
+  static void show(BuildContext context, String message) {
+    _overlayEntry = OverlayEntry(
+      builder: (BuildContext context) => Positioned(
+        bottom: 50.0,
+        left: MediaQuery.of(context).size.width * 0.1,
+        child: Material(
+          color: Colors.transparent,
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 12.0),
+            decoration: BoxDecoration(
+              color: Colors.black,
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            child: Text(
+              message,
+              style: TextStyle(color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
+      ),
+    );
+
+    Overlay.of(context).insert(_overlayEntry!);
+
+    Future.delayed(Duration(seconds: 2), () {
+      _overlayEntry!.remove();
+    });
+  }
+}
+

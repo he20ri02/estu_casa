@@ -40,6 +40,11 @@ dependencies:
   cloud_firestore: ^4.8.2
   firebase_auth: ^4.6.3
   firebase_storage: ^11.2.4
+  instabug_flutter: ^12.1.0
+  permission_handler: any
+  image_picker: ^0.8.2
+
+
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +74,12 @@ flutter:
     - assets/images/estucasa.png
     - assets/images/splash.png
     - assets/images/gracias_registro.png
+    - assets/images/ap1.jpg
+    - assets/images/ap2.jpg
+    - assets/images/ap3.jpeg
+    - assets/images/ap4.jpeg
+    - assets/images/user.png
+    - assets/images/icono.ico
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

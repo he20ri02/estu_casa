@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 //Clase principal de la pantalla Login, aqui
 //se incluyen las clases que conforman Logn(Fondo,SingUp)
@@ -51,10 +52,12 @@ class Sign extends StatelessWidget {
                     width: 2.0,
                   )),
               //En esta función se agrega la accion al precionar el botón
-              onPressed: () {
+              onPressed: () async {
+                var status = await Permission.location.request();
                 // Acciones cuando se presiona el botón Login
                 Navigator.pushNamedAndRemoveUntil(
                     context, '/login', (route) => false);
+
               },
               child: const Text('Log In'),
             ),
